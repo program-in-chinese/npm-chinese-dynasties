@@ -81,7 +81,7 @@ exports.查询 = function(名称) {
     } else if (!代.名) {
       for (时期 in 代) {
         for (时期内代 of 代[时期]) {
-          if (时期内代.名 == 名称) {
+          if (时期内代.名 && 时期内代.名.includes(名称)) {
             结果.push(时期内代)
           }
         }
