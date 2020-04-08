@@ -7,7 +7,10 @@ describe('朝代', function() {
       assert.deepStrictEqual(演示.查询(), []);
     });
     it('返回夏代信息', function() {
-      assert.deepStrictEqual(演示.查询("夏"), [{名: "夏", 起: -2070, 止: -1600}]);
+      assert.deepStrictEqual(演示.查询("夏"), [
+        {名: "夏", 起: -2070, 止: -1600},
+        {名: "西夏", 起: 1038, 止: 1227}
+      ]);
     });
     it('返回唐代信息', function() {
       assert.deepStrictEqual(演示.查询("唐"), [
@@ -19,7 +22,12 @@ describe('朝代', function() {
       assert.deepStrictEqual(演示.查询("明"), [{名: "明", 起: 1368, 止: 1644}]);
     });
     it('返回魏代信息', function() {
-      assert.deepStrictEqual(演示.查询("魏"), [{名: "魏", 起: 220, 止: 265}]);
+      assert.deepStrictEqual(演示.查询("魏"), [
+        {名: "魏", 起: 220, 止: 265},
+        {名: "北魏", 起: 386, 止: 534},
+        {名: "东魏", 起: 534, 止: 550},
+        {名: "西魏", 起: 535, 止: 556}
+      ]);
     });
     it('返回汉代信息', function() {
       assert.deepStrictEqual(演示.查询("汉"), [
@@ -27,6 +35,9 @@ describe('朝代', function() {
         {名: "东汉", 起: 25, 止: 220},
         {名: "后汉", 起: 947, 止: 950}
       ]);
+    });
+    it('返回陈代信息', function() {
+      assert.deepStrictEqual(演示.查询("陈"), [{名: "陈", 起: 557, 止: 589}])
     });
   });
 });
