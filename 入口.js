@@ -156,26 +156,33 @@ exports.历代 = function() {
   return 原始数据
 }
 
+function 名称匹配(代, 名称) {
+  return 代.名.includes(名称);
+}
 exports.查询 = function(名称) {
-  if (! 名称) {
+  return 遍历(名称匹配, 名称);
+}
+
+function 遍历(条件, 值) {
+  if (! 值) {
     return []
   }
   var 结果 = []
   for (代 of 原始数据) {
-    if (代.名 && 代.名.includes(名称)) {
+    if (代.名 && 条件(代, 值)) { // 代.名.includes(名称)
       结果.push(代)
     } else if (!代.名) {
       for (时期 in 代) {
         for (时期内代 of 代[时期]) {
           if (时期内代.名) {
-            if (时期内代.名.includes(名称)) {
+            if (条件(时期内代, 值)) {
               结果.push(时期内代)
             }
           } else {
             // console.log(时期内代)
             for (子时期 in 时期内代) {
               for (子时期内代 of 时期内代[子时期]) {
-                if (子时期内代.名 && 子时期内代.名.includes(名称)) {
+                if (子时期内代.名 && 条件(子时期内代, 值)) {
                     结果.push(子时期内代)
                 }
               }
