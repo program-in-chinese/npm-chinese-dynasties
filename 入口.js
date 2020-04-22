@@ -159,8 +159,17 @@ exports.历代 = function() {
 function 名称匹配(代, 名称) {
   return 代.名.includes(名称);
 }
+
+function 所在范围(代, 年份) {
+  return 代.起 <= 年份 && (!代.止 || 代.止 >= 年份);
+}
+
 exports.查询 = function(名称) {
   return 遍历(名称匹配, 名称);
+}
+
+exports.哪代 = function(年份) {
+  return 遍历(所在范围, 年份);
 }
 
 function 遍历(条件, 值) {
