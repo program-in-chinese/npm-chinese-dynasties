@@ -151,9 +151,17 @@ exports.清朝 = 清朝
 exports.中华民国 = 中华民国
 exports.中华人民共和国 = 中华人民共和国
 
+exports.原始数据 = function() {
+  return 原始数据
+}
+
 /* 列出所有朝代信息, 来源: 新华字典第 11 版附录"我国历代纪元简表" */
 exports.历代 = function() {
-  return 原始数据
+  return 遍历(都有, true)
+}
+
+function 都有(代, 占位) {
+  return true;
 }
 
 function 名称匹配(代, 名称) {
@@ -178,7 +186,7 @@ function 遍历(条件, 值) {
   }
   var 结果 = []
   for (代 of 原始数据) {
-    if (代.名 && 条件(代, 值)) { // 代.名.includes(名称)
+    if (代.名 && 条件(代, 值)) {
       结果.push(代)
     } else if (!代.名) {
       for (时期 in 代) {

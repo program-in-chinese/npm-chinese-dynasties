@@ -72,3 +72,11 @@ describe('朝代', function() {
     });
   });
 });
+
+describe('朝代', function() {
+  describe('#历代()', function() {
+    it('列表', function() {
+      assert.deepStrictEqual(演示.历代().length, 42);
+    });
+  });
+});

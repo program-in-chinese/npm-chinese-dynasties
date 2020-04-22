@@ -1,6 +1,6 @@
 {
   "name": "chinese-dynasties",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "中国朝代相关信息",
   "main": "入口.js",
   "scripts": {
